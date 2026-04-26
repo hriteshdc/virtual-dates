@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonam & Hritesh's Cinema 🖤🌸</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0010; overflow: hidden; font-family: sans-serif; }
+    canvas { display: block; }
+
+    #nameScreen {
+      position: fixed; inset: 0;
+      background: #0a0010;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 100;
+    }
+    #nameScreen h1 {
+      color: #f48fb1;
+      font-size: 32px;
+      margin-bottom: 8px;
+      letter-spacing: 3px;
+    }
+    #nameScreen p {
+      color: #9b59b6;
+      font-size: 14px;
+      margin-bottom: 32px;
+      letter-spacing: 1px;
+    }
+    #nameScreen input {
+      background: #1a0028;
+      border: 1px solid #6a0040;
+      color: #f48fb1;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+      margin-bottom: 16px;
+      width: 260px;
+    }
+    #nameScreen button {
+      background: #880e4f;
+      color: #fff;
+      border: none;
+      padding: 12px 40px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    #nameScreen button:hover { background: #c2185b; }
+
+    #hud {
+      position: fixed;
+      top: 16px; left: 16px;
+      color: #f48fb1;
+      font-size: 13px;
+      display: none;
+      line-height: 1.8;
+    }
+    #hud .name-tag {
+      background: rgba(26,0,40,0.8);
+      border: 1px solid #6a0040;
+      padding: 6px 14px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+    #hud .controls {
+      background: rgba(26,0,40,0.7);
+      border: 1px solid #3d0030;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #9b59b6;
+    }
+
+    #prompt {
+      position: fixed;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(136,14,79,0.9);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-size: 14px;
+      display: none;
+      letter-spacing: 1px;
+    }
+
+    #online {
+      position: fixed;
+      top: 16px; right: 16px;
+      background: rgba(26,0,40,0.8);
+      border: 1px solid #6a0040;
+      color: #f48fb1;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nameScreen">
+    <h1>🖤 Welcome 🌸</h1>
+    <p>Sonam & Hritesh's Virtual Cinema</p>
+    <input id="nameInput" type="text" placeholder="Enter your name..." maxlength="20" />
+    <button onclick="enterCinema()">Enter Cinema ✨</button>
+  </div>
+
+  <div id="hud">
+    <div class="name-tag" id="playerNameTag">👤 You</div>
+    <div class="controls">
+      WASD — Move<br>
+      Mouse — Look around<br>
+      E — Interact
+    </div>
+  </div>
+
+  <div id="prompt">Press E to interact</div>
+
+  <div id="online">🌸 Online: <span id="onlineCount">1</span></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>
