@@ -33,14 +33,14 @@ let joystickDeltaX = 0, joystickDeltaY = 0;
 let lookActive = false, lookStartX = 0, lookStartY = 0;
 
 const photos = [
-  { file: 'photo1.jpeg', caption: "Didn't want you to leave 🥺" },
-  { file: 'photo2.jpeg', caption: 'Love our toto rides 🛺💕' },
-  { file: 'photo3.jpeg', caption: "I'd melt in this kiss forever 😘" },
-  { file: 'photo4.jpeg', caption: 'Me vs Her 😂🖤' },
-  { file: 'photo5.jpeg', caption: "She'd prolly say this pic sucks 😅" },
-  { file: 'photo6.jpeg', caption: 'My Shaylaaaa 🌸' },
-  { file: 'photo7.jpeg', caption: 'Some city gazing with my ladyyy 🌃' },
-  { file: 'photo8.jpeg', caption: 'She made us cupcakes literally 🧁✨' },
+  { file: 'photo1.jpeg', caption: "That's illegal." },
+  { file: 'photo2.jpeg', caption: 'the sea is searching for you' },
+  { file: 'photo3.jpeg', caption: "That cat is mine yk what i mean!" },
+  { file: 'photo4.jpeg', caption: 'My Moon 🖤' },
+  { file: 'photo5.jpeg', caption: "Wish the day lasted longer" },
+  { file: 'photo6.jpeg', caption: 'Listen to me' },
+  { file: 'photo7.jpeg', caption: '' },
+  { file: 'photo8.jpeg', caption: 'License when?' },
 ];
 
 const songs = [
@@ -1319,7 +1319,7 @@ function handleInteract() {
 
 // ── MIC BLOWING ────────────────────────────────────────
 function startMicBlowing() {
-  if (candlesLeft === 0) { showToast('All candles blown! 🎂 Happy Birthday Sonam! 🌸'); return; }
+  if (candlesLeft === 0) { showToast('All candles blown! 🎂 Happy Birthday Shristi! 🌸'); return; }
   showToast('🎤 Blow into your mic to blow out a candle!');
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1338,7 +1338,7 @@ function startMicBlowing() {
         if (flames[idx]) { scene.remove(flames[idx]); if (flameLights[idx]) flameLights[idx].intensity = 0; }
         candlesLeft--;
         if (socket) socket.emit('blowCandle', { player: playerName, left: candlesLeft });
-        if (candlesLeft === 0) { showToast('🎂 All candles blown! Happy Birthday Sonam!! 🌸'); launchConfetti(160); }
+        if (candlesLeft === 0) { showToast('🎂 All candles blown! Happy Birthday Shristi! 🌸'); launchConfetti(160); }
         else { showToast(`💨 ${candlesLeft} candle${candlesLeft > 1 ? 's' : ''} left!`); }
         clearInterval(check);
         stream.getTracks().forEach(t => t.stop());
@@ -1358,7 +1358,7 @@ function startMicBlowing() {
     candlesLeft--;
     if (socket) socket.emit('blowCandle', { player: playerName, left: candlesLeft });
     if (candlesLeft === 0) launchConfetti(160);
-    showToast(candlesLeft === 0 ? '🎂 Happy Birthday Sonam!! 🌸' : `💨 ${candlesLeft} candles left!`);
+    showToast(candlesLeft === 0 ? '🎂 Happy Birthday Shristi! 🌸' : `💨 ${candlesLeft} candles left!`);
   });
 }
 
