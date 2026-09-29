@@ -1,4 +1,4 @@
-// Sonam & Hritesh Virtual Cinema
+// 
 
 let scene, camera, renderer, socket, playerName;
 let otherPlayers = {};
